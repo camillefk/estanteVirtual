@@ -1,0 +1,27 @@
+body {
+    font-family: 'Josefin Sans', sans-serif;
+    background-image: url('./assets/bg_estante.png');
+    background-size: cover; /* Faz a imagem ocupar toda a tela */
+    background-repeat: no-repeat; 
+    background-position: center; 
+}
+
+.box-inicial {
+    height: 100vh; /* Faz a altura ocupar toda a tela */
+    display: flex;
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+}
+
+.center-box {
+    width: 600px;
+    height: 400px;
+    background-color: rgba(255, 255, 255, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center; /* Centraliza o texto dentro do quadrado */
+    box-sizing: border-box; /* Inclui bordas e padding nas dimensões */
+}
