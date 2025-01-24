@@ -14,8 +14,8 @@ body {
 }
 
 .center-box {
-    width: 600px;
-    height: 400px;
+    width: 650px;
+    height: 450px;
     background-color: rgba(255, 255, 255, 0.8);
     display: flex;
     justify-content: center;
