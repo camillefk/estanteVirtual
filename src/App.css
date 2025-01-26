@@ -1,27 +1,63 @@
 body {
     font-family: 'Josefin Sans', sans-serif;
     background-image: url('./assets/bg_estante.png');
-    background-size: cover; /* Faz a imagem ocupar toda a tela */
-    background-repeat: no-repeat; 
-    background-position: center; 
-}
-
-.box-inicial {
-    height: 100vh; /* Faz a altura ocupar toda a tela */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  
+  .box-inicial {
+    height: 100vh;
     display: flex;
-    justify-content: center; /* Centraliza horizontalmente */
-    align-items: center; /* Centraliza verticalmente */
-}
+    flex-direction: column; /* organiza verticalmente */
+    justify-content: center; /* centraliza verticalmente */
+    align-items: center; /* centraliza horizontalmente */
+  }
+  
+  .title-inicial {
+    margin-bottom: 20px;
+    font-size: 2.5rem;
+    color: white;
+  }
 
-.center-box {
+  .center-box h2 {
+    margin-top: 20px;
+    padding: 30px;
+  }
+  
+  .center-box p {
+    padding: 35px;
+    font-size: 1.3rem;
+  }
+
+  .center-box {
     width: 650px;
     height: 450px;
     background-color: rgba(255, 255, 255, 0.8);
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: top;
     align-items: center;
     border-radius: 20px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    text-align: center; /* Centraliza o texto dentro do quadrado */
-    box-sizing: border-box; /* Inclui bordas e padding nas dimensões */
-}
+    box-sizing: border-box;
+  }
+  
+  .button-inicial {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 1.3rem;
+    color: white;
+    background-color: #a86be2;
+    border-radius: 30px;
+    padding: 12px 50px; /* combinação de padding-top e padding-left/right */
+    margin: 20px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .button-inicial:hover {
+    background-color: #9256c3;
+    transform: scale(1.1);
+  }
+  
