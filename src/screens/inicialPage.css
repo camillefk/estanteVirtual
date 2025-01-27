@@ -1,12 +1,3 @@
-body {
-    font-family: 'Josefin Sans', sans-serif;
-    background-image: url('../assets/bg_estante.png');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    overflow: hidden;
-  }
-  
   .box-inicial {
     height: 100vh;
     display: flex;
@@ -40,7 +31,7 @@ body {
     justify-content: top;
     align-items: center;
     border-radius: 20px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
     box-sizing: border-box;
   }
   

@@ -1,11 +1,13 @@
+import React from 'react';
 import './homePage.css';
+import Navbar from '../components/navbar';
 
-function homePage() {
+function HomePage() {
     return (
         <div className="home-page">
-          <h2>Bem-vindo à página de destino!</h2>
+          <Navbar />
         </div>
       );
     }
     
-    export default homePage;
+    export default HomePage;
