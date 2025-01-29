@@ -1,0 +1,109 @@
+.home-page {
+    display: flex;
+    flex-direction: column; /* Organiza os elementos verticalmente */
+    align-items: center; /* Centraliza horizontalmente */
+    min-height: 100vh;
+    box-sizing: border-box;
+    background-color: #a86be2;
+}
+
+.box-homePage {
+    width: 950px;
+    min-height: 100vh;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Alinha os elementos no topo */
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    padding: 20px;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between; /* Mantém os elementos afastados */
+    align-items: center;
+    width: 100%;
+    max-width: 900px;
+    margin-bottom: 20px;
+}
+
+.search-bar {
+    padding: 10px 40px;
+    font-size: 15px;
+    border: 2px solid #e2b76b;
+    border-radius: 40px;
+    width: 300px;
+    height: 30px;
+    transition: all 0.3s ease-in-out;
+}
+
+.search-bar:focus {
+    outline: none;
+    border-color: #e2b76b;
+    box-shadow: 0 0 8px rgba(226, 183, 107, 0.7);
+}
+
+hr {
+    border: none;
+    height: 2px; 
+    background-color: #e2b76b;
+    margin: 0;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.books-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+    margin-top: 20px;
+    width: 100%;
+}
+
+.book-card {
+    display: flex;
+    align-items: center;
+    background-color: #f5eef6;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 3px 3px 12px rgba(0, 0, 0, 0.15);
+    width: 95%;
+    max-width: 700px;
+    gap: 20px;
+}
+
+.book-cover {
+    width: 120px;
+    height: 190px;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.book-info {
+    flex: 1;
+    font-size: 18px;
+}
+
+.book-info h3 {
+    font-size: 22px;
+    margin-bottom: 5px;
+}
+
+.btn-ver-mais {
+    background-color: #df9e2d;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 15px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+.btn-ver-mais:hover {
+    background-color: #c38211;
+}
+
+
