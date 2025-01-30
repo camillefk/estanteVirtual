@@ -8,31 +8,38 @@ function HomePage() {
   const books = [
     {
       id: 1,
-      title: "Dom Casmurro",
-      author: "Machado de Assis",
-      category: "Romance",
+      title: "Harry Potter e a Pedra Filosofal",
+      author: "J.K. Rowling",
+      category: "Romance, Literatura fantástica, Literatura infantil, Alta fantasia",
       rating: 5,
-      cover: "https://m.media-amazon.com/images/I/51sV5qFnN+L.jpg"
+      cover: "https://m.media-amazon.com/images/I/41897yAI4LL._SY445_SX342_.jpg"
     },
     {
       id: 2,
-      title: "1984",
-      author: "George Orwell",
-      category: "Distopia",
+      title: "O Principe Cruel",
+      author: "Holly Black",
+      category: "Fantasia, Romance",
       rating: 4,
-      cover: "https://m.media-amazon.com/images/I/71kxa1-0mfL.jpg"
+      cover: "https://m.media-amazon.com/images/I/81FH6q0EqYS._AC_UL800_FMwebp_QL65_.jpg"
     },
     {
       id: 3,
-      title: "O Hobbit",
-      author: "J.R.R. Tolkien",
-      category: "Fantasia",
+      title: "O Rei Perverso",
+      author: "Holly Black",
+      category: "Fantasia, Romance",
+      rating: 4,
+      cover: "https://m.media-amazon.com/images/I/91N9kjbqxWS._AC_UL800_FMwebp_QL65_.jpg"
+    },
+    {
+      id: 4,
+      title: "A Rainha do Nada",
+      author: "Holly Black",
+      category: "Fantasia, Romance",
       rating: 5,
-      cover: "https://m.media-amazon.com/images/I/81t2CVWEsUL.jpg"
+      cover: "https://m.media-amazon.com/images/I/91vZBs7i-+L._AC_UY545_FMwebp_QL65_.jpg"
     }
   ];
 
-  // Filtra os livros conforme o que o usuário digita
   const filteredBooks = books.filter(book =>
     book.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
     book.author.toLowerCase().includes(searchTerm.toLowerCase()) ||

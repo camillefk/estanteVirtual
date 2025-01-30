@@ -1,21 +1,22 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './navbar.css';
 
 const Navbar = () => {
     return (
         <nav className="navbar-home">
             <div className="navbar-left">
-                <a href="#">VOLTAR PARA TELA INICIAL</a>
+                <Link to="/">VOLTAR PARA TELA INICIAL</Link>
             </div>
             <div className="navbar-center">
                 <h2>ESTANTE VIRTUAL</h2>
             </div>
             <div className="navbar-right">
-                <a href="#">ESTATÍTICAS</a>
-                <a href="#">LIVROS LIDOS</a>
+                <Link to="/statisticPage">ESTATÍSTICAS</Link>
+                <Link to="/homePage">LIVROS LIDOS</Link>
             </div>
         </nav>
-    )
+    );
 }
 
 export default Navbar;
