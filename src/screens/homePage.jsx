@@ -1,44 +1,30 @@
 import React, { useState } from 'react';
 import './homePage.css';
 import Navbar from '../components/navbar';
+//import AdminPanel from "../screens/AdminPanel";
 
 function HomePage() {
   const [searchTerm, setSearchTerm] = useState("");
 
-  const books = [
-    {
-      id: 1,
-      title: "Harry Potter e a Pedra Filosofal",
-      author: "J.K. Rowling",
-      category: "Romance, Literatura fantástica, Literatura infantil, Alta fantasia",
-      rating: 5,
-      cover: "https://m.media-amazon.com/images/I/41897yAI4LL._SY445_SX342_.jpg"
-    },
-    {
-      id: 2,
-      title: "O Principe Cruel",
-      author: "Holly Black",
-      category: "Fantasia, Romance",
-      rating: 4,
-      cover: "https://m.media-amazon.com/images/I/81FH6q0EqYS._AC_UL800_FMwebp_QL65_.jpg"
-    },
-    {
-      id: 3,
-      title: "O Rei Perverso",
-      author: "Holly Black",
-      category: "Fantasia, Romance",
-      rating: 4,
-      cover: "https://m.media-amazon.com/images/I/91N9kjbqxWS._AC_UL800_FMwebp_QL65_.jpg"
-    },
-    {
-      id: 4,
-      title: "A Rainha do Nada",
-      author: "Holly Black",
-      category: "Fantasia, Romance",
-      rating: 5,
-      cover: "https://m.media-amazon.com/images/I/91vZBs7i-+L._AC_UY545_FMwebp_QL65_.jpg"
-    }
-  ];
+  //Estado para eu armazenar os livros
+  const [books, setBooks] = useState([]);
+
+  //Para carregar os livros do LocalStorage
+  useEffect(() => {
+    const savedBooks = JSON.parse(localStorage.getItem("books")) || [];
+    setBooks(savedBooks);
+  }, []);
+  //o JSON.parse está convertendo uma string JSON de volta para um objeto ou array
+
+  //Para adicionar um livro novo
+  const handleAddBook = (newBook) => {
+    //criando a nova lista de livros
+    const updatedBooks = [...books, { id: books.length + 1, ...newBook }];
+    //o ...books usa o operador (...) pra criar uma cópia do array books
+    setBooks(uptadepBooks);
+    localStorage.setItem("books", JSON.stringify(updatedBooks));
+  };
+
 
   const filteredBooks = books.filter(book =>
     book.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -49,6 +35,7 @@ function HomePage() {
   return (
     <div className="home-page">
       <Navbar />
+      
       <div className="box-homePage">
         <div className="header-container">
           <h2>Livros Lidos</h2>
@@ -61,8 +48,9 @@ function HomePage() {
           />
         </div>
         <hr />
+        <AdminPanel onAddBook={handleAddBook} />
         <div className="books-container">
-          {filteredBooks.map((book) => (
+          {books.map((book) => (
             <div key={book.id} className="book-card">
               <img src={book.cover} alt={book.title} className="book-cover" />
               <div className="book-info">
