@@ -1,36 +1,34 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './homePage.css';
 import Navbar from '../components/navbar';
-//import AdminPanel from "../screens/AdminPanel";
+import AdminPanel from "../screens/adminPanel"; 
 
 function HomePage() {
   const [searchTerm, setSearchTerm] = useState("");
-
-  //Estado para eu armazenar os livros
   const [books, setBooks] = useState([]);
 
-  //Para carregar os livros do LocalStorage
   useEffect(() => {
     const savedBooks = JSON.parse(localStorage.getItem("books")) || [];
     setBooks(savedBooks);
   }, []);
-  //o JSON.parse está convertendo uma string JSON de volta para um objeto ou array
 
-  //Para adicionar um livro novo
   const handleAddBook = (newBook) => {
-    //criando a nova lista de livros
     const updatedBooks = [...books, { id: books.length + 1, ...newBook }];
-    //o ...books usa o operador (...) pra criar uma cópia do array books
-    setBooks(uptadepBooks);
+    setBooks(updatedBooks);
     localStorage.setItem("books", JSON.stringify(updatedBooks));
   };
-
 
   const filteredBooks = books.filter(book =>
     book.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
     book.author.toLowerCase().includes(searchTerm.toLowerCase()) ||
     book.category.toLowerCase().includes(searchTerm.toLowerCase())
   );
+
+  const handleRemoveBook = (id) => {
+    const updatedBooks = books.filter(book => book.id !== id);
+    setBooks(updatedBooks);
+    localStorage.setItem("books", JSON.stringify(updatedBooks));
+  };
 
   return (
     <div className="home-page">
@@ -50,7 +48,7 @@ function HomePage() {
         <hr />
         <AdminPanel onAddBook={handleAddBook} />
         <div className="books-container">
-          {books.map((book) => (
+          {filteredBooks.map((book) => (
             <div key={book.id} className="book-card">
               <img src={book.cover} alt={book.title} className="book-cover" />
               <div className="book-info">
