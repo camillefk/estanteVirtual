@@ -1,42 +1,37 @@
 import React, { useState } from "react";
+import LoginAdmin from "./loginAdmin";
 import "./adminPanel.css";
 
-function AdminPanel({ onAddBook}) {
-    //estado para armazenar os dados dos livros novos
-    const [book, setBook] = useState({
-        title: "",
-        author: "",
-        category: "",
-        pages: 1,
-        rating: 1,
-        cover: "", 
-    });
+function AdminPanel({ onAddBook }) {
+    const [isAuthenticated, setIsAuthenticated] = useState(false);
 
-    //atualiza o estado conforme o usuário digita
-    const handleChange = (e) => {
-        setBook({ ...book, [e.target.name]: e.target.value});
-    };
-
-    //funcao que vai ser chamada quando o formulário for enviado
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        onAddBook(book); //chamando a funçao que adiciona o livro na HomePage
-        setBook({ title: "", author: "", category: "", pages: 1, rating: 1, cover: "" }); //isso aqui limpa o formulário
+    // Função chamada após login
+    const handleLogin = () => {
+        setIsAuthenticated(true);
     };
 
     return (
-        <div className="admin-panel">
-            <h2>Painel Administrativo</h2>
-            <form onSubmit={handleSubmit}>
-                <input type="text" name="title" placeholder="Título" value={book.title} onChange={handleChange} required />
-                <input type="text" name="author" placeholder="Autor" value={book.author} onChange={handleChange} required />
-                <input type="text" name="category" placeholder="Categoria" value={book.category} onChange={handleChange} required />
-                <input type="number" name="pages" placeholder="Páginas" value={book.pages} onChange={handleChange} required />
-                <input type="text" name="rating" placeholder="Avaliação (1-5)" value={book.rating} onChange={handleChange} required />
-                <input type="text" name="cover" placeholder="URL da capa" value={book.cover} onChange={handleChange} required />
-                <button type="submit">Adicionar Livro</button>
-
-            </form>
+        <div>
+            {!isAuthenticated ? (
+                <LoginAdmin onLogin={handleLogin} />
+            ) : (
+                <div className="admin-panel">
+                    <h2>Painel Administrativo</h2>
+                    <form onSubmit={(e) => {
+                        e.preventDefault();
+                        onAddBook(book);
+                        setBook({ title: "", author: "", category: "", pages: 1, rating: 1, cover: "" });
+                    }}>
+                        <input type="text" name="title" placeholder="Título" required />
+                        <input type="text" name="author" placeholder="Autor" required />
+                        <input type="text" name="category" placeholder="Categoria" required />
+                        <input type="number" name="pages" placeholder="Páginas" required />
+                        <input type="text" name="rating" placeholder="Avaliação (1-5)" required />
+                        <input type="text" name="cover" placeholder="URL da capa" required />
+                        <button type="submit">Adicionar Livro</button>
+                    </form>
+                </div>
+            )}
         </div>
     );
 }

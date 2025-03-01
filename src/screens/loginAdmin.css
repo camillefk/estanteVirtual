@@ -1,0 +1,41 @@
+.login-admin {
+    width: 100%;
+    max-width: 350px;
+    margin: 100px auto;
+    padding: 20px;
+    background-color: #f4f4f4;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.login-admin h2 {
+    margin-bottom: 20px;
+}
+
+.login-admin input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.login-admin button {
+    width: 100%;
+    padding: 10px;
+    background-color: #333e54;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.login-admin button:hover {
+    background-color: #222a3a;
+}
+
+.error-message {
+    color: red;
+    font-size: 14px;
+}

@@ -1,0 +1,20 @@
+.admin-panel {
+    display: flex;
+    flex-direction: column; /* Organiza os elementos verticalmente */
+    align-items: center; /* Centraliza horizontalmente */
+    min-height: 100vh;
+    box-sizing: border-box;
+    background-color: #a86be2;
+}
+
+.box-admin {
+    width: 950px;
+    min-height: 100vh;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Alinha os elementos no topo */
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    padding: 20px;
+}

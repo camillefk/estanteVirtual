@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './homePage.css';
 import Navbar from '../components/navbar';
-import AdminPanel from "../screens/adminPanel"; 
 
 function HomePage() {
   const [searchTerm, setSearchTerm] = useState("");
@@ -12,23 +11,11 @@ function HomePage() {
     setBooks(savedBooks);
   }, []);
 
-  const handleAddBook = (newBook) => {
-    const updatedBooks = [...books, { id: books.length + 1, ...newBook }];
-    setBooks(updatedBooks);
-    localStorage.setItem("books", JSON.stringify(updatedBooks));
-  };
-
   const filteredBooks = books.filter(book =>
     book.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
     book.author.toLowerCase().includes(searchTerm.toLowerCase()) ||
     book.category.toLowerCase().includes(searchTerm.toLowerCase())
   );
-
-  const handleRemoveBook = (id) => {
-    const updatedBooks = books.filter(book => book.id !== id);
-    setBooks(updatedBooks);
-    localStorage.setItem("books", JSON.stringify(updatedBooks));
-  };
 
   return (
     <div className="home-page">
@@ -46,7 +33,6 @@ function HomePage() {
           />
         </div>
         <hr />
-        <AdminPanel onAddBook={handleAddBook} />
         <div className="books-container">
           {filteredBooks.map((book) => (
             <div key={book.id} className="book-card">
