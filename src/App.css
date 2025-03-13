@@ -1,9 +1,6 @@
 html, body {
     font-family: 'Josefin Sans', sans-serif;
-    background-image: url('./assets/bg_estante.png');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
+    background-color: #a86be2;
     height: 100%;
     margin: 0;
     padding: 0;

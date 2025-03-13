@@ -6,11 +6,18 @@ function HomePage() {
   const [searchTerm, setSearchTerm] = useState("");
   const [books, setBooks] = useState([]);
 
-  useEffect(() => {
+  // Função para carregar os livros do localStorage
+  const loadBooks = () => {
     const savedBooks = JSON.parse(localStorage.getItem("books")) || [];
     setBooks(savedBooks);
+  };
+
+  // Carrega os livros quando a página inicia
+  useEffect(() => {
+    loadBooks();
   }, []);
 
+  // Filtro de busca
   const filteredBooks = books.filter(book =>
     book.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
     book.author.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -34,18 +41,22 @@ function HomePage() {
         </div>
         <hr />
         <div className="books-container">
-          {filteredBooks.map((book) => (
-            <div key={book.id} className="book-card">
-              <img src={book.cover} alt={book.title} className="book-cover" />
-              <div className="book-info">
-                <h3>{book.title}</h3>
-                <p><strong>Autor:</strong> {book.author}</p>
-                <p><strong>Categoria:</strong> {book.category}</p>
-                <p><strong>Avaliação:</strong> {"★".repeat(book.rating)}{"☆".repeat(5 - book.rating)}</p>
-                <button className="btn-ver-mais">Ver Mais</button>
+          {filteredBooks.length > 0 ? (
+            filteredBooks.map((book) => (
+              <div key={book.id} className="book-card">
+                <img src={book.cover} alt={book.title} className="book-cover" />
+                <div className="book-info">
+                  <h3>{book.title}</h3>
+                  <p><strong>Autor:</strong> {book.author}</p>
+                  <p><strong>Categoria:</strong> {book.category}</p>
+                  <p><strong>Avaliação:</strong> {"★".repeat(book.rating)}{"☆".repeat(5 - book.rating)}</p>
+                  <button className="btn-ver-mais">Ver Mais</button>
+                </div>
               </div>
-            </div>
-          ))}
+            ))
+          ) : (
+            <p className="no-books">Nenhum livro adicionado ainda.</p>
+          )}
         </div>
       </div>
     </div>
